@@ -3,6 +3,7 @@ from modelos.company.company import Company
 from modelos.infor import Work
 
 User.create_user()
+User.login()
 Work.infor_works()
 Company.create_company()
 

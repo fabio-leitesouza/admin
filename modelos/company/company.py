@@ -9,9 +9,9 @@ class Company:
         self.endereco = endereco
         if len(Company.companies) < Company.MAX_CADASTROS:
           Company.companies.append(self)
-          print("Empresa cadastrada com sucesso!")
+          print("\nEmpresa cadastrada com sucesso!")
         else:
-           print("Número máximo de cadastros atingido.")
+           print("\nNúmero máximo de cadastros atingido.\n")
 
     def __str__(self):
       return f'{self.company_name} | {self.function} | {self.telephone} | {self.endereco}'
@@ -25,6 +25,7 @@ class Company:
     @classmethod
     def create_company(cls):
       while True:
+       print()
        print("1 - Cadastrar empresa")
        print("2 - Listar empresas cadastradas")
        print("3 - Sair")
@@ -34,7 +35,7 @@ class Company:
        if opcao == 1:
            if len(Company.companies) < Company.MAX_CADASTROS:
            
-            nome = input("Digite o nome da empresa: ")
+            nome = input("\nDigite o nome da empresa: ")
             funcao = input("Digite a função da empresa: ")
             telefone = input("Digite o telefone da empresa: ")
             endereco = input("Digite o endereço da empresa: ")
