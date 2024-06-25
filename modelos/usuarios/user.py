@@ -34,6 +34,7 @@ class User:
         new_user = cls(username, email, telephone)
         print("\nUsuário criado com sucesso! \n")
 
+    # Método para obter as informações do usuário
     @classmethod 
     def login(cls):
         username = input("\nDigite o nome de usuário: ")
