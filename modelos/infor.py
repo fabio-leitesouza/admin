@@ -19,15 +19,3 @@ class Work:
         print(f"{'Hora de entrada':<15} | {'Hora de saída':<15} | {'Função do Trabalho':<20} | {'Valor do trabalho':<15}")
         for work in cls.works:
             print(f'{work.entrada:<15} | {work.saida:<15} | {work.job_function:<20} | {work.work_value:<15}')
-    
-    # Solicita ao usuário informações sobre um novo trabalho e adiciona à lista de trabalhos registrados.
-    @classmethod
-    def infor_works(cls):
-        entrada = input("Digite o horário de entrada: ")
-        saida = input("Digite o horário de saída: ")
-        job_function = input("Digite a função do trabalho: ")
-        work_value = input("Digite o valor do trabalho: ")
-
-        # Cria um novo objeto Work com as informações fornecidas e imprime mensagem de sucesso
-        new_info = cls(entrada, saida, job_function, work_value)
-        print("\nInformações de trabalho adicionadas com sucesso!\n")

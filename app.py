@@ -23,7 +23,8 @@ def create_user():
 def login():
     username = input("\nDigite o nome de usuário: ")
     password = input("Digite a senha: ")
-        
+    password.append(password)
+
     for user in User.usuarios:
         if user._username == username:
             # Aqui você poderia adicionar uma verificação de senha se desejado
@@ -31,6 +32,17 @@ def login():
             return
         
     print("\nUsuário não encontrado. Verifique os dados e tente novamente.\n")
+
+# Solicita ao usuário informações sobre um novo trabalho e adiciona à lista de trabalhos registrados.
+    def infor_works(self):
+        entrada = input("Digite o horário de entrada: ")
+        saida = input("Digite o horário de saída: ")
+        job_function = input("Digite a função do trabalho: ")
+        work_value = input("Digite o valor do trabalho: ")
+
+        # Cria um novo objeto Work com as informações fornecidas e imprime mensagem de sucesso
+        new_info = (entrada, saida, job_function, work_value)
+        print("\nInformações de trabalho adicionadas com sucesso!\n")
 
 # Função para interação com empresas
 def create_company():
@@ -65,13 +77,40 @@ def create_company():
         else:
             print("Opção inválida. Tente novamente.")
 
-# Exemplos de chamadas que estavam no seu código original
 Work.infor_works()  # Método estático para adicionar informações de trabalho
 
 def main():
-    Company.company_list()  # Método para listar todas as empresas registradas
-    User.user_list()  # Método para listar todos os usuários registrados
-    Work.work_list()  # Método para listar todos os trabalhos registrados
+    
+    while True:
+        print()
+        print("1 - Cadastrar empresa")
+        print("2 - Listar empresas cadastradas")
+        print("3 - Sair")
+
+        opcao = int(input("Escolha uma opção: "))
+
+        if opcao == 1:
+            # Verifica se o número de empresas cadastradas não excedeu o limite
+            if len(Company.companies) < Company.MAX_CADASTROS:
+                nome = input("\nDigite o nome da empresa: ")
+                funcao = input("Digite a função da empresa: ")
+                telefone = input("Digite o telefone da empresa: ")
+                endereco = input("Digite o endereço da empresa: ")
+
+                # Cria uma nova instância de Company com as informações fornecidas
+                Company(nome, funcao, telefone, endereco)
+            else:
+                print("Número máximo de cadastros atingido. Assine o prêmio para cadastros sem limites.")
+
+        elif opcao == 2:
+            Company.company_list()  # Chama o método para listar empresas cadastradas
+
+        elif opcao == 3:
+            print("Encerrando o programa.")
+            break
+
+        else:
+            print("Opção inválida. Tente novamente.")
 
 if __name__ == '__main__':
     main()
